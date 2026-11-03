@@ -1,0 +1,9 @@
+from collections import Counter
+import json
+
+types = Counter()
+with open("data/clean/v0.1_enriched.jsonl") as f:
+    for line in f:
+        types[json.loads(line)["task_type"]] += 1
+
+print(types)
