@@ -1,5 +1,2 @@
 # Секреты
 .env
-logs/
-eval/reports/*.html
-__pycache__/
