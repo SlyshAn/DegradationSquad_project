@@ -44,7 +44,7 @@ def apply_typo(text, intensity="easy"):
         for i in indices:
             words[i] = mutate_word(words[i])
     elif intensity == "hard":
-        num_mutations = max(1, int(len(words) * 0.35))
+        num_mutations = max(1, int(len(words) * 0.20))
         indices = random.sample(range(len(words)), min(num_mutations, len(words)))
         for i in indices:
             words[i] = mutate_word(words[i])

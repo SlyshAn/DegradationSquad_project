@@ -1,2 +1,22 @@
 # Секреты
+.env# Виртуальное окружение
+venv/
+.venv/
+env/
+
+# Кэш Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Секреты
 .env
+.env.*
+
+# Кэш DVC (сами данные хранит DVC, не Git)
+.dvc/cache/
+.dvc/tmp/
+
+# Логи и временные файлы
+logs/
+*.log
