@@ -3,8 +3,8 @@ from __future__ import annotations
 
 import pandas as pd
 
-from src.analyst.metrics import analyze_frames, build_feedback
-from src.analyst.report import render_markdown
+from scripts.analyst.metrics import analyze_frames, build_feedback
+from scripts.analyst.report import render_markdown
 
 
 def test_worst_case_coverage_and_robustness():
