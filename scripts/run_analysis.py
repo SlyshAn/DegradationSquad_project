@@ -5,7 +5,9 @@ import json
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT))
+
 from analyst.metrics import analyze_files, build_feedback
 from analyst.report import render_markdown
 
