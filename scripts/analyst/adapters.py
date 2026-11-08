@@ -39,8 +39,10 @@ def load_mutations_meta(path: str | Path) -> dict[str, dict[str, Any]]:
 
 
 def normalize_correct(output: str, expected: str) -> bool:
-    # Вместо жесткого сравнения строк, используем GigaChat
-    return check_answer_is_correct(output, expected)
+    if not output or not expected:
+        return False
+    # Просто проверяем, совпадают ли строки (для теста)
+    return output.strip().lower() == expected.strip().lower()
 
 
 def adapt_robustness_report(
