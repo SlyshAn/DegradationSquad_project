@@ -174,25 +174,28 @@ def analyze_files(
 
 def build_feedback(result: dict[str, Any], top_k: int = 3) -> dict[str, Any]:
     agent = result["agents"][result["target_agent"]]
-    ranked = sorted(
-        agent["type_summary"].items(),
-        key=lambda kv: kv[1]["mean_delta"],
-        reverse=True,
-    )
-
+    ranked = sorted(agent["type_summary"].items(), key=lambda kv: kv[1]["mean_delta"], reverse=True)
+    wc = agent["worst_case"]
+    
     return {
-        "target_agent": result["target_agent"],
-        "worst_case": agent["worst_case"],
-        "top_mutation_types": [
+        "целевой_агент": result["target_agent"],
+        "худший_случай": {
+            "тип_мутации": wc["mutation_type"],
+            "интенсивность": wc["intensity"],
+            "количество_тестов": wc["n"],
+            "точность": round(wc["accuracy"], 3),
+            "падение": round(wc["delta"], 3),
+            "доверительный_интервал": [round(wc["ci_low"], 3), round(wc["ci_high"], 3)],
+            "среднее_шагов": round(wc["avg_steps"], 2),
+            "средняя_стоимость_usd": round(wc["avg_cost_usd"], 4),
+        },
+        "топ_типов_мутаций": [
             {
-                "mutation_type": mutation_type,
-                "mean_delta": float(info["mean_delta"]),
-                "n_combos": int(info["n_combos"]),
+                "тип_мутации": k,
+                "среднее_падение": round(float(v["mean_delta"]), 3),
+                "количество_комбинаций": int(v["n_combos"])
             }
-            for mutation_type, info in ranked[:top_k]
+            for k, v in ranked[:top_k]
         ],
-        "action": (
-            "Увеличить число мутаций этих типов и проверить интенсивности "
-            "с максимальным delta. Передать результат Мутатору."
-        ),
+        "рекомендация": "Увеличить число мутаций этих типов и проверить интенсивности с максимальным падением. Передать результат Мутатору."
     }
