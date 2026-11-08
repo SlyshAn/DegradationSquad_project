@@ -1,0 +1,26 @@
+[
+  {
+    "mutation_id": "hp_000_clean",
+    "task_id": "hp_000",
+    "prompt_type": "clean",
+    "prompt_text": "original text",
+    "model_output": "yes",
+    "steps_count": 1,
+    "latency_ms": 100,
+    "tokens": {"input_tokens": 10, "output_tokens": 5},
+    "cost_usd": 0.001,
+    "trajectory": []
+  },
+  {
+    "mutation_id": "hp_000_dirty",
+    "task_id": "hp_000",
+    "prompt_type": "dirty",
+    "prompt_text": "mutated text",
+    "model_output": "no",
+    "steps_count": 2,
+    "latency_ms": 200,
+    "tokens": {"input_tokens": 12, "output_tokens": 6},
+    "cost_usd": 0.002,
+    "trajectory": []
+  }
+]
