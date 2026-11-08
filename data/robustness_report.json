@@ -1,1 +1,843 @@
 
+[
+  {
+    "mutation_id": "hp_000_clean",
+    "task_id": "hp_000",
+    "prompt_type": "clean",
+    "prompt_text": "Were Scott Derrickson and Ed Wood of the same nationality?",
+    "steps_count": 1,
+    "latency_ms": 5,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_000_dirty",
+    "task_id": "hp_000",
+    "prompt_type": "dirty",
+    "prompt_text": "Did Scott Derrickson and Ed Wood share the same nationality?",
+    "steps_count": 1,
+    "latency_ms": 1,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_000_clean",
+    "task_id": "hp_000",
+    "prompt_type": "clean",
+    "prompt_text": "Were Scott Derrickson and Ed Wood of the same nationality?",
+    "steps_count": 1,
+    "latency_ms": 1,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_000_dirty",
+    "task_id": "hp_000",
+    "prompt_type": "dirty",
+    "prompt_text": "Were Scott Derrickson and Ed Wood of different nationalities?",
+    "steps_count": 1,
+    "latency_ms": 1,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_001_clean",
+    "task_id": "hp_001",
+    "prompt_type": "clean",
+    "prompt_text": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_001_dirty",
+    "task_id": "hp_001",
+    "prompt_type": "dirty",
+    "prompt_text": "Which government position did the actress who played Corliss Archer in Kiss and Tell hold?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_001_clean",
+    "task_id": "hp_001",
+    "prompt_type": "clean",
+    "prompt_text": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_001_dirty",
+    "task_id": "hp_001",
+    "prompt_type": "dirty",
+    "prompt_text": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_002_clean",
+    "task_id": "hp_002",
+    "prompt_type": "clean",
+    "prompt_text": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_002_dirty",
+    "task_id": "hp_002",
+    "prompt_type": "dirty",
+    "prompt_text": "Which first-person science fantasy YA series has companion books about enslaved worlds and alien species?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_002_clean",
+    "task_id": "hp_002",
+    "prompt_type": "clean",
+    "prompt_text": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_002_dirty",
+    "task_id": "hp_002",
+    "prompt_type": "dirty",
+    "prompt_text": "What science fantasy young adult series, told in third person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_003_clean",
+    "task_id": "hp_003",
+    "prompt_type": "clean",
+    "prompt_text": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_003_dirty",
+    "task_id": "hp_003",
+    "prompt_type": "dirty",
+    "prompt_text": "Do the Laleli Mosque and Esma Sultan Mansion share the same neighborhood?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_003_clean",
+    "task_id": "hp_003",
+    "prompt_type": "clean",
+    "prompt_text": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+    "steps_count": 1,
+    "latency_ms": 1,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_003_dirty",
+    "task_id": "hp_003",
+    "prompt_type": "dirty",
+    "prompt_text": "Are the Laleli Mosque and Esma Sultan Mansion located in the same city?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_004_clean",
+    "task_id": "hp_004",
+    "prompt_type": "clean",
+    "prompt_text": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_004_dirty",
+    "task_id": "hp_004",
+    "prompt_type": "dirty",
+    "prompt_text": "In which New York city is the director of the romantic comedy \"Big Stone Gap\" based?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_004_clean",
+    "task_id": "hp_004",
+    "prompt_type": "clean",
+    "prompt_text": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_004_dirty",
+    "task_id": "hp_004",
+    "prompt_type": "dirty",
+    "prompt_text": "The director of the romantic comedy \"Big Stone Gap\" is based in what city?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_005_clean",
+    "task_id": "hp_005",
+    "prompt_type": "clean",
+    "prompt_text": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_005_dirty",
+    "task_id": "hp_005",
+    "prompt_type": "dirty",
+    "prompt_text": "Who formed the South Korean boy group whose debut album is 2014 S/S?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_005_clean",
+    "task_id": "hp_005",
+    "prompt_type": "clean",
+    "prompt_text": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_005_dirty",
+    "task_id": "hp_005",
+    "prompt_type": "dirty",
+    "prompt_text": "2014 S/S is the debut album of a South Korean girl group that was formed by who?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_006_clean",
+    "task_id": "hp_006",
+    "prompt_type": "clean",
+    "prompt_text": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_006_dirty",
+    "task_id": "hp_006",
+    "prompt_type": "dirty",
+    "prompt_text": "Which person, known by the stage name Aladin, worked as a consultant helping organizations improve their performance?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_006_clean",
+    "task_id": "hp_006",
+    "prompt_type": "clean",
+    "prompt_text": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_006_dirty",
+    "task_id": "hp_006",
+    "prompt_type": "dirty",
+    "prompt_text": "Who was known by his stage name Aladin and helped organizations improve their performance as a manager?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_007_clean",
+    "task_id": "hp_007",
+    "prompt_type": "clean",
+    "prompt_text": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_007_dirty",
+    "task_id": "hp_007",
+    "prompt_type": "dirty",
+    "prompt_text": "How many people can the arena where the Lewiston Maineiacs played their home games seat?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_007_clean",
+    "task_id": "hp_007",
+    "prompt_type": "clean",
+    "prompt_text": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_007_dirty",
+    "task_id": "hp_007",
+    "prompt_type": "dirty",
+    "prompt_text": "The arena where the Lewiston Maineiacs played their home games can seat how many people, excluding standing room?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_008_clean",
+    "task_id": "hp_008",
+    "prompt_type": "clean",
+    "prompt_text": "Who is older, Annie Morton or Terry Richardson?",
+    "steps_count": 1,
+    "latency_ms": 1,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_008_dirty",
+    "task_id": "hp_008",
+    "prompt_type": "dirty",
+    "prompt_text": "Between Annie Morton and Terry Richardson, who is older?",
+    "steps_count": 1,
+    "latency_ms": 1,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_008_clean",
+    "task_id": "hp_008",
+    "prompt_type": "clean",
+    "prompt_text": "Who is older, Annie Morton or Terry Richardson?",
+    "steps_count": 1,
+    "latency_ms": 1,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_008_dirty",
+    "task_id": "hp_008",
+    "prompt_type": "dirty",
+    "prompt_text": "Who is younger, Annie Morton or Terry Richardson?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_009_clean",
+    "task_id": "hp_009",
+    "prompt_type": "clean",
+    "prompt_text": "Are Local H and For Against both from the United States?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_009_dirty",
+    "task_id": "hp_009",
+    "prompt_type": "dirty",
+    "prompt_text": "Do Local H and For Against both originate from the United States?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_009_clean",
+    "task_id": "hp_009",
+    "prompt_type": "clean",
+    "prompt_text": "Are Local H and For Against both from the United States?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  },
+  {
+    "mutation_id": "hp_009_dirty",
+    "task_id": "hp_009",
+    "prompt_type": "dirty",
+    "prompt_text": "Are Local H and For Against both from the United Kingdom?",
+    "steps_count": 1,
+    "latency_ms": 0,
+    "tokens": {
+      "input_tokens": 120,
+      "output_tokens": 45,
+      "total_tokens": 165
+    },
+    "cost_usd": 3.3e-05,
+    "model_output": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+    "trajectory": [
+      {
+        "role": "ai",
+        "content": "На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе)."
+      }
+    ]
+  }
+]
