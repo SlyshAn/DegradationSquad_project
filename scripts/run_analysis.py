@@ -103,7 +103,10 @@ def main() -> None:
     agent = result["agents"][result["target_agent"]]
     worst = agent["worst_case"]
     print("Целевой агент (Target Agent):", result["target_agent"])
-    print("Оценка устойчивости (Robustness score):", round(agent["robustness_score"], 3))
+        # Безопасный вывод (защита от None, если базовая точность 0)
+    rs = agent["robustness_score"]
+    rs_print = round(rs, 3) if rs is not None else "Н/Д (базовая точность = 0)"
+    print("Оценка устойчивости (Robustness score):", rs_print)
     print("Покрытие (Coverage):", f"{agent['coverage']:.1%}")
     print("Худший случай (Worst case):", worst["mutation_type"], worst["intensity"], "падение (delta) =", round(worst["delta"], 3))
     print("Отчеты сохранены в:", args.out, args.metrics_json, args.feedback_json)
