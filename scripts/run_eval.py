@@ -196,7 +196,7 @@ def run_pipeline():
             "trajectory": clean_res["trajectory"]
         })
         
-        # 2. Оценка зашумленного ввода (Мутация Жени)
+        # 2. Оценка зашумленного ввода
         dirty_res = run_agent_session(m["mutated"])
         eval_results.append({
             "mutation_id": f"{task_id}_dirty",
