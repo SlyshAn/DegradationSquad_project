@@ -178,24 +178,24 @@ def build_feedback(result: dict[str, Any], top_k: int = 3) -> dict[str, Any]:
     wc = agent["worst_case"]
     
     return {
-        "целевой_агент": result["target_agent"],
-        "худший_случай": {
-            "тип_мутации": wc["mutation_type"],
-            "интенсивность": wc["intensity"],
-            "количество_тестов": wc["n"],
-            "точность": round(wc["accuracy"], 3),
-            "падение": round(wc["delta"], 3),
-            "доверительный_интервал": [round(wc["ci_low"], 3), round(wc["ci_high"], 3)],
-            "среднее_шагов": round(wc["avg_steps"], 2),
-            "средняя_стоимость_usd": round(wc["avg_cost_usd"], 4),
+        "target_agent (целевой агент)": result["target_agent"],
+        "worst_case (худший случай)": {
+            "mutation_type (тип мутации)": wc["mutation_type"],
+            "intensity (интенсивность)": wc["intensity"],
+            "n (количество тестов)": wc["n"],
+            "accuracy (точность)": round(wc["accuracy"], 3),
+            "delta (падение)": round(wc["delta"], 3),
+            "ci (доверительный интервал)": [round(wc["ci_low"], 3), round(wc["ci_high"], 3)],
+            "avg_steps (среднее шагов)": round(wc["avg_steps"], 2),
+            "avg_cost_usd (средняя стоимость)": round(wc["avg_cost_usd"], 4),
         },
-        "топ_типов_мутаций": [
+        "top_mutation_types (топ типов мутаций)": [
             {
-                "тип_мутации": k,
-                "среднее_падение": round(float(v["mean_delta"]), 3),
-                "количество_комбинаций": int(v["n_combos"])
+                "mutation_type (тип мутации)": k,
+                "mean_delta (среднее падение)": round(float(v["mean_delta"]), 3),
+                "n_combos (количество комбинаций)": int(v["n_combos"])
             }
             for k, v in ranked[:top_k]
         ],
-        "рекомендация": "Увеличить число мутаций этих типов и проверить интенсивности с максимальным падением. Передать результат Мутатору."
+        "action (рекомендация)": "Увеличить число мутаций этих типов и проверить интенсивности с максимальным падением. Передать результат Мутатору."
     }
