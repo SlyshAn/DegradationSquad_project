@@ -20,3 +20,8 @@ __pycache__/
 # Логи и временные файлы
 logs/
 *.log
+
+#Отчёты аналитика
+reports/*.json
+reports/*.md
+!reports/.gitkeep
