@@ -1,22 +1,24 @@
-name: analyst-run
+name: analyst-checks
 
 on:
-  workflow_dispatch:
-    inputs:
-      target_agent:
-        description: "Целевой агент"
-        required: true
-        default: "langgraph"
+  push:
+    branches:
+      - main
+      - "feature/analyst-*"
+  pull_request:
 
 jobs:
-  analyze:
+  test:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - name: Install dependencies
         run: |
@@ -24,38 +26,8 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           pip install -r requirements-analyst.txt
 
-      - name: Check inputs
-        run: |
-          test -f data/robustness_report.json   || (echo "Нет data/robustness_report.json"   && exit 1)
-          test -f data/clean/v0.1_enriched.jsonl || (echo "Нет data/clean/v0.1_enriched.jsonl" && exit 1)
-          test -f data/calibration/manual_mutations.jsonl || (echo "Нет manual_mutations.jsonl" && exit 1)
+      - name: Run tests
+        run: pytest -q
 
-      - name: Run analysis
-        run: |
-          python scripts/run_analysis.py \
-            --format robustness_report \
-            --report data/robustness_report.json \
-            --enriched data/clean/v0.1_enriched.jsonl \
-            --mutations data/calibration/manual_mutations.jsonl \
-            --target-agent "${{ github.event.inputs.target_agent }}" \
-            --out reports/robustness_profile.md \
-            --metrics-json reports/metrics.json \
-            --feedback-json reports/feedback_to_mutator.json
-
-      - name: Show summary
-        run: |
-          echo "=== Robustness profile ==="
-          cat reports/robustness_profile.md
-          echo
-          echo "=== Feedback to mutator ==="
-          cat reports/feedback_to_mutator.json
-
-      - name: Upload reports
-        uses: actions/upload-artifact@v4
-        with:
-          name: analyst-reports
-          path: |
-            reports/metrics.json
-            reports/robustness_profile.md
-            reports/feedback_to_mutator.json
-          retention-days: 14
+      - name: Compile Python
+        run: python -m compileall -q scripts
