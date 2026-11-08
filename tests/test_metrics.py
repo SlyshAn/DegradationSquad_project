@@ -41,6 +41,6 @@ def test_feedback_and_report_contain_worst_case():
     feedback = build_feedback(result)
     report = render_markdown(result)
 
-    assert feedback["worst_case"]["mutation_type"] == "missing_condition"
+    assert feedback["худший случай"]["тип мутации"] == "missing_condition"
     assert "missing_condition" in report
     assert "Оценка устойчивости" in report
