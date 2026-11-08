@@ -42,7 +42,7 @@ def render_markdown(result: dict[str, Any]) -> str:
         "",
         "## 📋 Все проверенные комбинации",
         "",
-        "| Тип мутации | Интенсивность | Количество тестов (n) | Точность (accuracy) | Падение (delta) | 95% ДИ | Ср. шагов | Ср. стоимость ($) |",
+        "| Тип мутации (mutation_type) | Интенсивность (intensity) | Кол-во тестов (n) | Точность (accuracy) | Падение (delta) | 95% ДИ (CI) | Ср. шагов (steps) | Ср. стоимость (cost_usd) |",
         "|---|---|---:|---:|---:|---|---:|---:|",
     ]
 
@@ -60,6 +60,7 @@ def render_markdown(result: dict[str, Any]) -> str:
                 cost=_fmt(combo["avg_cost_usd"], 4),
             )
         )
+        
 
     lines += [
         "",
