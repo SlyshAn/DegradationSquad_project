@@ -8,6 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 
+from analyst.plots import generate_delta_plot
 from analyst.adapters import adapt_robustness_report
 from analyst.metrics import analyze_frames, build_feedback, load_logs, logs_to_df
 from analyst.report import render_markdown
@@ -53,6 +54,13 @@ def main() -> None:
         out = Path(path)
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(content, encoding="utf-8")
+
+        # Генерация графиков
+    try:
+        plot_path = generate_delta_plot(result)
+        print("График сохранен:", plot_path)
+    except Exception as e:
+        print("Не удалось построить график:", e)
 
     agent = result["agents"][result["target_agent"]]
     worst = agent["worst_case"]
