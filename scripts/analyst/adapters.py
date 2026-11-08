@@ -1,3 +1,4 @@
+from .llm_judge import check_answer_is_correct
 from __future__ import annotations
 
 import json
@@ -38,7 +39,8 @@ def load_mutations_meta(path: str | Path) -> dict[str, dict[str, Any]]:
 
 
 def normalize_correct(output: str, expected: str) -> bool:
-    return output.strip().lower() == expected.strip().lower()
+    # Вместо жесткого сравнения строк, используем GigaChat
+    return check_answer_is_correct(output, expected)
 
 
 def adapt_robustness_report(
