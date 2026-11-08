@@ -62,13 +62,13 @@ def main() -> None:
     except Exception as e:
         print("Не удалось построить график:", e)
 
-    agent = result["agents"][result["target_agent"]]
+        agent = result["agents"][result["target_agent"]]
     worst = agent["worst_case"]
-    print("Target agent:", result["target_agent"])
-    print("Robustness score:", round(agent["robustness_score"], 3))
-    print("Coverage:", f"{agent['coverage']:.1%}")
-    print("Worst case:", worst["mutation_type"], worst["intensity"], "delta=", round(worst["delta"], 3))
-    print("Reports:", args.out, args.metrics_json, args.feedback_json)
+    print("Целевой агент:", result["target_agent"])
+    print("Оценка устойчивости:", round(agent["robustness_score"], 3))
+    print("Покрытие комбинаций:", f"{agent['coverage']:.1%}")
+    print("Худший случай:", worst["mutation_type"], worst["intensity"], "падение=", round(worst["delta"], 3))
+    print("Отчеты сохранены в:", args.out, args.metrics_json, args.feedback_json)
 
 
 if __name__ == "__main__":
