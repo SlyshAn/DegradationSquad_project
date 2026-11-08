@@ -37,7 +37,7 @@ def search_wikipedia(query: str) -> str:
 target_tools = [calculate_expression, search_wikipedia]
 
 api_key = os.environ.get("CLOUD_API_KEY", "YOUR_DUMMY_KEY_FOR_TESTS")
-BASE_URL = "https://cloud.ru"
+BASE_URL = "https://foundation-models.api.cloud.ru/v1"
 MODEL_NAME = "Qwen/Qwen3.6-35B-A3B"
 
 # Стоимость токенов для Qwen/Qwen3.6-35B-A3B (усредненные тарифы за 1 млн токенов)
