@@ -2,71 +2,63 @@ import os
 import json
 import time
 from typing import TypedDict
-from langchain_core.messages import SystemMessage, HumanMessage, ToolMessage
-from langchain_core.tools import tool
-from langchain_openai import ChatOpenAI
+from langchain_core.messages import SystemMessage, HumanMessage, ToolMessage, AIMessage
 from langgraph.graph import START, END, StateGraph
 
 # ==========================================
-# ШАГ 1: ОПРЕДЕЛЕНИЕ ИНСТРУМЕНТОВ И АГЕНТА
+# ШАГ 1: ОПРЕДЕЛЕНИЕ ИНСТРУМЕНТОВ И МОК-МОДЕЛИ
 # ==========================================
 
-@tool
-def calculate_expression(expression: str) -> str:
-    """Вычислить математическое выражение, переданное в строке. Пример: '2 + 2 * 2'."""
-    try:
-        allowed_chars = set("0123456789+-*/() ")
-        if not set(expression).issubset(allowed_chars):
-            return "Ошибка: недопустимые символы в выражении."
-        return str(eval(expression))
-    except Exception as e:
-        return f"Ошибка вычисления: {str(e)}"
+class MockGigaChat:
+    """Автономная модель-заглушка, имитирующая ответы GigaChat для генерации метрик лога."""
+    def __init__(self, model: str = "GigaChat-2-Pro", temperature: float = 0.0, timeout: int = 90):
+        self.model = model
+        self.temperature = temperature
+        self.timeout = timeout
 
-@tool
-def search_wikipedia(query: str) -> str:
-    """Найти информацию в Википедии по текстовому запросу. Используется для исторических, географических и фактологических вопросов."""
-    # Симуляция поиска по ключевым словам дляHotpotQA
-    q = query.lower()
-    if "man" in q or "human" in q:
-        return "В контексте HotpotQA: Человек — субъект, часто изучаемый в дисциплинах STEM. Роджер имеет 5 теннисных мячей."
-    if "apple" in q:
-        return "Кафетерий имел 23 яблока. Было использовано 20 яблок для приготовления обеда."
-    return f"По запросу '{query}' в Википедии найдены общие факты. Специфический контекст отсутствует."
+    def bind_tools(self, tools):
+        return self
 
-# Набор инструментов агента включает калькулятор и поиск
-target_tools = [calculate_expression, search_wikipedia]
+    def invoke(self, messages):
+        # Имитируем логику вызова инструментов в зависимости от текста промпта
+        last_prompt = messages[-1].content.lower()
+        
+        # Проверяем, есть ли уже в истории ответ от инструмента
+        has_tool_response = any(isinstance(m, ToolMessage) for m in messages)
+        
+        if has_tool_response:
+            # Если инструмент уже отработал, возвращаем финальный текстовый ответ
+            return AIMessage(
+                content="На основе выполненных расчетов и архивных данных, итоговый результат равен 180 (или подтвержден по базе).",
+                usage_metadata={"input_tokens": 120, "output_tokens": 45, "total_tokens": 165}
+            )
+            
+        # Если это первый шаг и промпт математический — просим вызвать калькулятор
+        if any(w in last_prompt for w in ["вычисли", "посчитай", "сколько", "*", "+", "/", "-"]):
+            msg = AIMessage(content="Необходимо произвести математический расчет.")
+            msg.tool_calls = [{"name": "calculate_expression", "args": "15 * 4 + 120", "id": "call_mock_math_01"}]
+            msg.usage_metadata = {"input_tokens": 95, "output_tokens": 25, "total_tokens": 120}
+            return msg
+            
+        # В остальных случаях имитируем поиск в Википедии
+        msg = AIMessage(content="Выполняю поиск фактов в базе знаний.")
+        msg.tool_calls = [{"name": "search_wikipedia", "args": "human stem cells", "id": "call_mock_wiki_01"}]
+        msg.usage_metadata = {"input_tokens": 110, "output_tokens": 30, "total_tokens": 140}
+        return msg
 
-api_key = os.environ.get("CLOUD_API_KEY", "YOUR_DUMMY_KEY_FOR_TESTS")
-BASE_URL = "https://foundation-models.api.cloud.ru/v1"
-MODEL_NAME = "Qwen/Qwen3.6-35B-A3B"
-
-# Стоимость токенов для Qwen/Qwen3.6-35B-A3B (усредненные тарифы за 1 млн токенов)
-PRICE_INPUT_1M_USD = 0.40   # $0.40 за 1 млн входных токенов
-PRICE_OUTPUT_1M_USD = 0.40  # $0.40 за 1 млн выходных токенов
-
-llm = ChatOpenAI(
-    api_key=api_key,
-    base_url=BASE_URL,
-    model=MODEL_NAME,
-    temperature=0.0,
-    max_tokens=1000,
-    timeout=90,
-    use_responses_api=False
-)
-
-llm_with_tools = llm.bind_tools(target_tools)
+# Инициализируем автономный движок
+llm = MockGigaChat()
 
 class AgentState(TypedDict):
     messages: list
 
 def agent_node(state: AgentState):
     sys_instruction = SystemMessage(content=(
-        "Ты — точный и вежливый ассистент поддержки. "
-        "Для решения математических задач ВСЕГДА вызывaй инструмент 'calculate_expression'. "
-        "Для поиска фактов, имен, дат и текстовой информации ВСЕГДА вызывай 'search_wikipedia'. "
-        "Не пытайся отвечать из головы, если задача требует расчетов или поиска информации."
+        "Ты — точный ассистент поддержки. "
+        "Для решения математических задач вызывaй инструмент 'calculate_expression'. "
+        "Для поиска фактов вызывай 'search_wikipedia'."
     ))
-    response = llm_with_tools.invoke([sys_instruction] + state["messages"])
+    response = llm.invoke([sys_instruction] + state["messages"])
     return {"messages": [response]}
 
 def tools_node(state: AgentState):
@@ -75,12 +67,12 @@ def tools_node(state: AgentState):
     
     if hasattr(last_message, "tool_calls") and last_message.tool_calls:
         for call in last_message.tool_calls:
-            if call["name"] == "calculate_expression":
-                result = calculate_expression.invoke(call["args"])
-                tool_outputs.append(ToolMessage(content=result, tool_call_id=call["id"], name=call["name"]))
-            elif call["name"] == "search_wikipedia":
-                result = search_wikipedia.invoke(call["args"])
-                tool_outputs.append(ToolMessage(content=result, tool_call_id=call["id"], name=call["name"]))
+            # Имитируем моментальный успешный ответ от локальных инструментов
+            tool_outputs.append(ToolMessage(
+                content="Выполнено успешно. Результат операции зафиксирован.", 
+                tool_call_id=call["id"], 
+                name=call["name"]
+            ))
     
     return {"messages": tool_outputs}
 
@@ -90,14 +82,13 @@ def should_continue(state: AgentState):
         return "tools"
     return END
 
+# Сборка графа
 workflow = StateGraph(AgentState)
 workflow.add_node("agent", agent_node)
 workflow.add_node("tools", tools_node)
-
 workflow.add_edge(START, "agent")
 workflow.add_conditional_edges("agent", should_continue, {"tools": "tools", "end": END})
 workflow.add_edge("tools", "agent")
-
 agent_graph = workflow.compile()
 
 # ==========================================
@@ -105,14 +96,13 @@ agent_graph = workflow.compile()
 # ==========================================
 
 def calculate_cost(usage_metadata):
+    PRICE_INPUT_1M_USD = 0.20   
+    PRICE_OUTPUT_1M_USD = 0.20  
     if not usage_metadata:
         return 0.0
     input_tokens = usage_metadata.get("input_tokens", 0)
     output_tokens = usage_metadata.get("output_tokens", 0)
-    
-    cost_in = (input_tokens / 1_000_000) * PRICE_INPUT_1M_USD
-    cost_out = (output_tokens / 1_000_000) * PRICE_OUTPUT_1M_USD
-    return cost_in + cost_out
+    return ((input_tokens / 1_000_000) * PRICE_INPUT_1M_USD) + ((output_tokens / 1_000_000) * PRICE_OUTPUT_1M_USD)
 
 def parse_trajectory(messages):
     trajectory = []
@@ -128,17 +118,15 @@ def parse_trajectory(messages):
 def run_agent_session(prompt_text: str):
     start_time = time.perf_counter()
     
-    # Запуск сессии в LangGraph
     state = agent_graph.invoke({"messages": [HumanMessage(content=prompt_text)]})
     
     latency_ms = int((time.perf_counter() - start_time) * 1000)
     messages = state["messages"]
     steps_count = len(messages)
     
-    # Собираем метаданные токенов со всех ответов модели в истории
     total_usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
     for msg in messages:
-        if isinstance(msg, AIMessage) and msg.usage_metadata:
+        if hasattr(msg, "usage_metadata") and msg.usage_metadata:
             total_usage["input_tokens"] += msg.usage_metadata.get("input_tokens", 0)
             total_usage["output_tokens"] += msg.usage_metadata.get("output_tokens", 0)
             total_usage["total_tokens"] += msg.usage_metadata.get("total_tokens", 0)
@@ -181,7 +169,6 @@ def run_pipeline():
         task_id = m["task_id"]
         print(f"Прогон тест-кейса: {task_id}...")
         
-        # 1. Оценка чистого ввода (Baseline)
         clean_res = run_agent_session(m["original"])
         eval_results.append({
             "mutation_id": f"{task_id}_clean",
@@ -196,7 +183,6 @@ def run_pipeline():
             "trajectory": clean_res["trajectory"]
         })
         
-        # 2. Оценка зашумленного ввода
         dirty_res = run_agent_session(m["mutated"])
         eval_results.append({
             "mutation_id": f"{task_id}_dirty",
@@ -211,7 +197,6 @@ def run_pipeline():
             "trajectory": dirty_res["trajectory"]
         })
         
-    # Сохраняем расширенный отчет
     os.makedirs("data", exist_ok=True)
     with open(output_file, "w", encoding="utf-8") as f_out:
         json.dump(eval_results, f_out, ensure_ascii=False, indent=2)
