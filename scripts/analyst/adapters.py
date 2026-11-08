@@ -1,5 +1,5 @@
-from .llm_judge import check_answer_is_correct
 from __future__ import annotations
+from .llm_judge import check_answer_is_correct
 
 import json
 import uuid
